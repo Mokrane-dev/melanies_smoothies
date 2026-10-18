@@ -13,7 +13,7 @@ st.write("The name on your Smoothie will be:", name_on_order)
 
 cnx = st.connection("snowflake")
 session = cnx.session()
-#my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'),col('SEARCH_ON'))
+my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'),col('SEARCH_ON'))
 my_dataframe = (
     session.table("SMOOTHIES.PUBLIC.FRUIT_OPTIONS")
     .select(col("FRUIT_ID"), col("FRUIT_NAME"))
@@ -21,7 +21,7 @@ my_dataframe = (
 
 pd_df = my_dataframe.to_pandas()
 #st.dataframe(data=my_dataframe, use_container_width=True)
-#st.stop()
+st.stop()
 
 #Covert teh snowflake DATAFRAME to a pandas 
 pd_df=my_dataframe.to_pandas()
