@@ -44,8 +44,10 @@ if ingredients_list:
         st.write('The search value for ', fruit_chosen,' is ', search_on, '.')
       
         st.subheader(fruit_chosen + ' Nutrition Information')
-        smoothiefroot_response = requests.get(f"https://my.smoothiefroot.com/api/fruit/" + fruit_chosen )
-        sf_df = st.dataframe (data=smoothiefroot_response.json(), use_container_width=True)
+        #smoothiefroot_response = requests.get(f"https://my.smoothiefroot.com/api/fruit/" + fruit_chosen )
+        #sf_df = st.dataframe (data=smoothiefroot_response.json(), use_container_width=True)
+        smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/" + fruit_chosen )  
+        sf_df = st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
 
        
          
@@ -60,7 +62,6 @@ if ingredients_list:
     #if ingredients_string:
         session.sql(my_insert_stmt).collect()
 
-smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/" + fruit_chosen )  
-sf_df = st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
+
 #st.success('Your Smoothie is ordered!', icon="✅")
 #st.success('Order Name:  '+ name_on_order, icon="✅")
